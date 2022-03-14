@@ -1,4 +1,4 @@
 package com.example.actionparkbackend.controller;
 
-public class lsifud {
+public class BookingRESTController {
 }
