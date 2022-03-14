@@ -1,6 +1,7 @@
 package com.example.actionparkbackend.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Activity {
@@ -12,9 +13,9 @@ public class Activity {
     private double activityPrice;
     private String activityDescription;
 
-    @ManyToOne
-    @JoinColumn(name="booking_id")
-    private Booking booking;
+    @OneToMany
+    @JoinColumn(name="activity_id")
+    private List<Booking> bookings;
 
     public int getActivityId() {
         return activityId;

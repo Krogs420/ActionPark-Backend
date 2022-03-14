@@ -1,9 +1,6 @@
 package com.example.actionparkbackend.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Customer {
@@ -15,6 +12,10 @@ public class Customer {
     private String customerMail;
     private String customerPhoneNum;
     private String customerAddress;
+
+    @OneToOne
+    @JoinColumn(name="customer_id")
+    private Booking booking;
 
     public int getCustomerId() {
         return customerId;

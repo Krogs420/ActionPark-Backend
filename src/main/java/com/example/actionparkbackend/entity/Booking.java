@@ -13,9 +13,13 @@ public class Booking {
     private LocalDate bookingDate;
     private int contenderAmount;
 
-    @OneToMany
-    @JoinColumn(name="booking_id")
-    private List<Activity> activities;
+    @ManyToOne
+    @JoinColumn(name="activity_id")
+    private Activity activities;
+
+    @OneToOne
+    @JoinColumn(name="customer_id")
+    private Customer customer;
 
 
     public int getBookingId() {
