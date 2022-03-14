@@ -1,9 +1,6 @@
 package com.example.actionparkbackend.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Activity {
@@ -14,6 +11,10 @@ public class Activity {
     private String activityName;
     private double activityPrice;
     private String activityDescription;
+
+    @ManyToOne
+    @JoinColumn(name="booking_id")
+    private Booking booking;
 
     public int getActivityId() {
         return activityId;

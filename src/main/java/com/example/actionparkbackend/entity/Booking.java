@@ -1,10 +1,8 @@
 package com.example.actionparkbackend.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 public class Booking {
@@ -14,6 +12,11 @@ public class Booking {
     private LocalDate creationDate = LocalDate.now();
     private LocalDate bookingDate;
     private int contenderAmount;
+
+    @OneToMany
+    @JoinColumn(name="booking_id")
+    private List<Activity> activities;
+
 
     public int getBookingId() {
         return bookingId;
