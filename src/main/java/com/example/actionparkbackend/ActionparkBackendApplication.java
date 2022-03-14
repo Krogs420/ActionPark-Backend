@@ -1,0 +1,13 @@
+package com.example.actionparkbackend;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ActionparkBackendApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(ActionparkBackendApplication.class, args);
+    }
+
+}
