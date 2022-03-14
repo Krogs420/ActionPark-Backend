@@ -19,10 +19,6 @@ public class Activity {
         return activityId;
     }
 
-    public void setActivityId(int activityId) {
-        this.activityId = activityId;
-    }
-
     public String getActivityName() {
         return activityName;
     }
