@@ -13,13 +13,16 @@ public class CustomerService {
   @Autowired
   CustomerRepository customerRepository;
 
-
   public List<Customer> getAllCustomers() {
     return customerRepository.findAll();
   }
 
   public void saveCustomer(Customer customer) {
     customerRepository.save(customer);
+  }
+
+  public Customer getCustomerById(int id) {
+    return customerRepository.findById(id).get();
   }
 
 }

@@ -7,6 +7,7 @@ import com.example.actionparkbackend.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -22,5 +23,9 @@ public class BookingRESTController  {
     return bookingService.getBookings();
   }
 
+  @GetMapping("/getBooking/{id}")
+  public Booking getBooking(@PathVariable int id){
+    return bookingService.getBookingById(id);
+  }
 
 }
