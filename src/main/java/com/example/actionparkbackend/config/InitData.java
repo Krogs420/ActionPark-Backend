@@ -30,6 +30,7 @@ public class InitData implements CommandLineRunner {
   @Override
   public void run(String... args) throws Exception {
 
+    //Activity
     Activity activity = new Activity();
     activity.setActivityName("Mini Gold");
     activity.setActivityPrice(100.0);
@@ -37,6 +38,7 @@ public class InitData implements CommandLineRunner {
 
     activityService.saveActivity(activity);
 
+    //Customer
     Customer customer = new Customer();
     customer.setCustomerFirstName("Finn");
     customer.setCustomerLastName("Jesen");
@@ -46,14 +48,22 @@ public class InitData implements CommandLineRunner {
 
     customerService.saveCustomer(customer);
 
+    //Bookings
     Booking booking = new Booking();
     booking.setBookingDate(LocalDate.now());
     booking.setCreationDate(LocalDate.now());
     booking.setContenderAmount(4);
     booking.setCustomer(customer);
-
     bookingService.saveBooking(booking);
 
+    Booking booking2 = new Booking();
+    booking2.setBookingDate(LocalDate.now());
+    booking2.setCreationDate(LocalDate.now());
+    booking2.setContenderAmount(4);
+    booking2.setCustomer(customer);
+    bookingService.saveBooking(booking2);
+
+    //BookingLines
     BookingLine bookingLine = new BookingLine();
     bookingLine.setBooking(booking);
     bookingLine.setActivity(activity);
@@ -66,8 +76,16 @@ public class InitData implements CommandLineRunner {
     bookingLine3.setBooking(booking);
     bookingLine3.setActivity(activity);
 
+    BookingLine bookingLine4 = new BookingLine();
+    bookingLine4.setBooking(booking2);
+    bookingLine4.setActivity(activity);
+
     bookingLineService.saveBookingLine(bookingLine);
     bookingLineService.saveBookingLine(bookingLine2);
     bookingLineService.saveBookingLine(bookingLine3);
+    bookingLineService.saveBookingLine(bookingLine4);
+
+
+
   }
 }
