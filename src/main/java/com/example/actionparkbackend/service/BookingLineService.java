@@ -21,6 +21,6 @@ public class BookingLineService {
   }
 
   public BookingLine getBookingLineById(int id) {
-    return bookingLineRepository.getById(id);
+    return bookingLineRepository.findById(id).get();
   }
 }
