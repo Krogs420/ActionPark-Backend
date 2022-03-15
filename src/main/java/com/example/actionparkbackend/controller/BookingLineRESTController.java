@@ -18,12 +18,12 @@ public class BookingLineRESTController {
   BookingLineService bookingLineService;
 
   @GetMapping("/getBookingLines")
-  public List<BookingLine> bookingLines(){
+  public List<BookingLine> bookingLines() {
     return bookingLineService.getBookingLines();
   }
 
   @GetMapping("/getBookingLine/{id}")
-  public BookingLine getBookingLine(@PathVariable int id){
+  public BookingLine getBookingLine(@PathVariable int id) {
     return bookingLineService.getBookingLineById(id);
   }
 }

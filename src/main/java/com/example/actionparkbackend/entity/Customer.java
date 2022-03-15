@@ -4,60 +4,60 @@ import javax.persistence.*;
 
 @Entity
 public class Customer {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int customerId;
-    private String customerFirstName;
-    private String customerLastName;
-    private String customerMail;
-    private String customerPhoneNum;
-    private String customerAddress;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private int customerId;
+  private String customerFirstName;
+  private String customerLastName;
+  private String customerMail;
+  private String customerPhoneNum;
+  private String customerAddress;
 
-    @OneToOne
-    @JoinColumn(name="customer_id")
-    private Booking booking;
+  @OneToOne
+  @JoinColumn(name = "customer_id")
+  private Booking booking;
 
-    public int getCustomerId() {
-        return customerId;
-    }
+  public int getCustomerId() {
+    return customerId;
+  }
 
-       public String getCustomerFirstName() {
-        return customerFirstName;
-    }
+  public String getCustomerFirstName() {
+    return customerFirstName;
+  }
 
-    public void setCustomerFirstName(String customerFirstName) {
-        this.customerFirstName = customerFirstName;
-    }
+  public void setCustomerFirstName(String customerFirstName) {
+    this.customerFirstName = customerFirstName;
+  }
 
-    public String getCustomerLastName() {
-        return customerLastName;
-    }
+  public String getCustomerLastName() {
+    return customerLastName;
+  }
 
-    public void setCustomerLastName(String customerLastName) {
-        this.customerLastName = customerLastName;
-    }
+  public void setCustomerLastName(String customerLastName) {
+    this.customerLastName = customerLastName;
+  }
 
-    public String getCustomerMail() {
-        return customerMail;
-    }
+  public String getCustomerMail() {
+    return customerMail;
+  }
 
-    public void setCustomerMail(String customerMail) {
-        this.customerMail = customerMail;
-    }
+  public void setCustomerMail(String customerMail) {
+    this.customerMail = customerMail;
+  }
 
-    public String getCustomerPhoneNum() {
-        return customerPhoneNum;
-    }
+  public String getCustomerPhoneNum() {
+    return customerPhoneNum;
+  }
 
-    public void setCustomerPhoneNum(String customerPhoneNum) {
-        this.customerPhoneNum = customerPhoneNum;
-    }
+  public void setCustomerPhoneNum(String customerPhoneNum) {
+    this.customerPhoneNum = customerPhoneNum;
+  }
 
-    public String getCustomerAddress() {
-        return customerAddress;
-    }
+  public String getCustomerAddress() {
+    return customerAddress;
+  }
 
-    public void setCustomerAddress(String customerAddress) {
-        this.customerAddress = customerAddress;
-    }
+  public void setCustomerAddress(String customerAddress) {
+    this.customerAddress = customerAddress;
+  }
 }

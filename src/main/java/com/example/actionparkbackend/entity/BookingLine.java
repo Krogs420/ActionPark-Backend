@@ -31,7 +31,6 @@ public class BookingLine {
     return BookingLineId;
   }
 
-
   public Booking getBooking() {
     return booking;
   }

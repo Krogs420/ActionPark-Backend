@@ -13,18 +13,18 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class BookingRESTController  {
+public class BookingRESTController {
 
   @Autowired
   BookingService bookingService;
 
   @GetMapping("/getBookings")
-  public List<Booking> getAllBooking(){
+  public List<Booking> getAllBooking() {
     return bookingService.getBookings();
   }
 
   @GetMapping("/getBooking/{id}")
-  public Booking getBooking(@PathVariable int id){
+  public Booking getBooking(@PathVariable int id) {
     return bookingService.getBookingById(id);
   }
 

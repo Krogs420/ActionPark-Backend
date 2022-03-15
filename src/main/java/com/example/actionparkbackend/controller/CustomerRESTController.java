@@ -16,12 +16,12 @@ public class CustomerRESTController {
   CustomerService customerService;
 
   @GetMapping("/getCustomers")
-  public List<Customer> getAllCustomers(){
+  public List<Customer> getAllCustomers() {
     return customerService.getAllCustomers();
   }
 
   @GetMapping("/getCustomer/{id}")
-  public Customer getCustomer(@PathVariable int id){
+  public Customer getCustomer(@PathVariable int id) {
     return customerService.getCustomerById(id);
   }
 

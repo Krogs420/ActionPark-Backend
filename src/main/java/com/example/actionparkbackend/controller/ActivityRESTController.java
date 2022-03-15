@@ -17,12 +17,12 @@ public class ActivityRESTController {
   ActivityService activityService;
 
   @GetMapping("/getActivities")
-  public List<Activity> getAllActivities(){
+  public List<Activity> getAllActivities() {
     return activityService.getAllActivities();
   }
 
   @GetMapping("/getActivity/{id}")
-  public Activity getActivity(@PathVariable int id){
+  public Activity getActivity(@PathVariable int id) {
     return activityService.getActivityById(id);
   }
 

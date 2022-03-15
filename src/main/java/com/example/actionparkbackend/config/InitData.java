@@ -84,8 +84,6 @@ public class InitData implements CommandLineRunner {
     bookingLineService.saveBookingLine(bookingLine2);
     bookingLineService.saveBookingLine(bookingLine3);
     bookingLineService.saveBookingLine(bookingLine4);
-
-
-
   }
+
 }

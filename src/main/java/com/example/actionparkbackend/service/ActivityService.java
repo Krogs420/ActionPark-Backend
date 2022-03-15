@@ -13,16 +13,16 @@ public class ActivityService {
   @Autowired
   ActivityRepository activityRepository;
 
-  public List<Activity> getAllActivities(){
-   return activityRepository.findAll();
+  public List<Activity> getAllActivities() {
+    return activityRepository.findAll();
   }
 
-  public void saveActivity(Activity activity){
+  public void saveActivity(Activity activity) {
     activityRepository.save(activity);
 
   }
 
   public Activity getActivityById(int id) {
-   return activityRepository.findById(id).get();
+    return activityRepository.findById(id).get();
   }
 }
