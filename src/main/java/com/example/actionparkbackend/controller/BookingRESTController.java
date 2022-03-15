@@ -21,4 +21,6 @@ public class BookingRESTController  {
   public List<Booking> getAllBooking(){
     return bookingService.getBookings();
   }
+
+
 }

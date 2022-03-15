@@ -22,4 +22,7 @@ public class ActivityService {
 
   }
 
+  public Activity getActivityById(int id) {
+   return activityRepository.findById(id).get();
+  }
 }
