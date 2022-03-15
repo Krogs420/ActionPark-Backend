@@ -1,4 +1,7 @@
 package com.example.actionparkbackend.repository;
 
-public interface CustomerRepository {
+import com.example.actionparkbackend.entity.Customer;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 }
