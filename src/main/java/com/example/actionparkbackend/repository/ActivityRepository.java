@@ -1,4 +1,7 @@
 package com.example.actionparkbackend.repository;
 
-public class ActivityRepository {
+import com.example.actionparkbackend.entity.Activity;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ActivityRepository extends JpaRepository<Activity, Integer> {
 }

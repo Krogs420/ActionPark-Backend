@@ -1,4 +1,4 @@
 package com.example.actionparkbackend.repository;
 
-public class CustomerRepository {
+public interface CustomerRepository {
 }
