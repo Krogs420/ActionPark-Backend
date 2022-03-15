@@ -1,5 +1,7 @@
 package com.example.actionparkbackend.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -13,9 +15,9 @@ public class Booking {
     private LocalDate bookingDate;
     private int contenderAmount;
 
-    @ManyToOne
-    @JoinColumn(name="activity_id")
-    private Activity activities;
+    @OneToMany
+    @JoinColumn(name="booking_id")
+    private List<BookingLine> bookingLine;
 
     @OneToOne
     @JoinColumn(name="customer_id")
@@ -48,5 +50,21 @@ public class Booking {
 
     public void setContenderAmount(int contenderAmount) {
         this.contenderAmount = contenderAmount;
+    }
+
+    public List<BookingLine> getBookingLine() {
+        return bookingLine;
+    }
+
+    public void setBookingLine(List<BookingLine> bookingLine) {
+        this.bookingLine = bookingLine;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }

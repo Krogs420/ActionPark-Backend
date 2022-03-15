@@ -1,5 +1,7 @@
 package com.example.actionparkbackend.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -13,9 +15,10 @@ public class Activity {
     private double activityPrice;
     private String activityDescription;
 
-    @OneToMany
+    @OneToOne
     @JoinColumn(name="activity_id")
-    private List<Booking> bookings;
+    @JsonBackReference
+    private BookingLine bookingLine;
 
     public int getActivityId() {
         return activityId;
@@ -43,5 +46,17 @@ public class Activity {
 
     public void setActivityDescription(String activityDescription) {
         this.activityDescription = activityDescription;
+    }
+
+    public void setActivityId(int activityId) {
+        this.activityId = activityId;
+    }
+
+    public BookingLine getBookingLine() {
+        return bookingLine;
+    }
+
+    public void setBookingLine(BookingLine bookingLine) {
+        this.bookingLine = bookingLine;
     }
 }

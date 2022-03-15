@@ -1,16 +1,31 @@
 package com.example.actionparkbackend.config;
 
 import com.example.actionparkbackend.entity.Activity;
+import com.example.actionparkbackend.entity.Booking;
+import com.example.actionparkbackend.entity.BookingLine;
+import com.example.actionparkbackend.entity.Customer;
 import com.example.actionparkbackend.service.ActivityService;
+import com.example.actionparkbackend.service.BookingLineService;
+import com.example.actionparkbackend.service.BookingService;
+import com.example.actionparkbackend.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
 
 @Component
 public class InitData implements CommandLineRunner {
 
   @Autowired
   ActivityService activityService;
+  @Autowired
+  BookingService bookingService;
+  @Autowired
+  BookingLineService bookingLineService;
+  @Autowired
+  CustomerService customerService;
+
 
   @Override
   public void run(String... args) throws Exception {
@@ -22,7 +37,37 @@ public class InitData implements CommandLineRunner {
 
     activityService.saveActivity(activity);
 
-    customer
+    Customer customer = new Customer();
+    customer.setCustomerFirstName("Finn");
+    customer.setCustomerLastName("Jesen");
+    customer.setCustomerMail("Finn@jensen.dk");
+    customer.setCustomerPhoneNum("12345678");
+    customer.setCustomerAddress("adresse");
 
+    customerService.saveCustomer(customer);
+
+    Booking booking = new Booking();
+    booking.setBookingDate(LocalDate.now());
+    booking.setCreationDate(LocalDate.now());
+    booking.setContenderAmount(4);
+    booking.setCustomer(customer);
+
+    bookingService.saveBooking(booking);
+
+    BookingLine bookingLine = new BookingLine();
+    bookingLine.setBooking(booking);
+    bookingLine.setActivity(activity);
+
+    BookingLine bookingLine2 = new BookingLine();
+    bookingLine2.setBooking(booking);
+    bookingLine2.setActivity(activity);
+
+    BookingLine bookingLine3 = new BookingLine();
+    bookingLine3.setBooking(booking);
+    bookingLine3.setActivity(activity);
+
+    bookingLineService.saveBookingLine(bookingLine);
+    bookingLineService.saveBookingLine(bookingLine2);
+    bookingLineService.saveBookingLine(bookingLine3);
   }
 }
