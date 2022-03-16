@@ -115,6 +115,8 @@ public class InitData implements CommandLineRunner {
     bookingLineService.saveBookingLine(bookingLine3);
     bookingLineService.saveBookingLine(bookingLine4);
 
+    System.out.println(bookingLine.getBookingLineId());
+
     booking.setBookingLines(lines);
     bookingService.saveBooking(booking);
     bookingService.saveBooking(booking2);
