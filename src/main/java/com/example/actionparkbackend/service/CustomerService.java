@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class CustomerService {
@@ -27,5 +28,9 @@ public class CustomerService {
 
   public Customer createNewCustomer(Customer customer) {
     return customerRepository.save(customer);
+  }
+
+  public Optional<Customer> findById(int id) {
+    return customerRepository.findById(id);
   }
 }
