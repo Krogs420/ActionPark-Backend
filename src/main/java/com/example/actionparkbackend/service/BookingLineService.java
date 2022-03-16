@@ -23,4 +23,8 @@ public class BookingLineService {
   public BookingLine getBookingLineById(int id) {
     return bookingLineRepository.findById(id).get();
   }
+
+  public BookingLine createNewBookingLine(BookingLine bookingLine) {
+    return bookingLineRepository.save(bookingLine);
+  }
 }
