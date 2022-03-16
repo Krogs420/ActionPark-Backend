@@ -35,27 +35,27 @@ public class CustomerRESTController {
 
   @PostMapping("/postCustomer")
   @ResponseStatus(HttpStatus.CREATED)
-  public Customer postCustomer(@RequestBody Customer customer){
+  public Customer postCustomer(@RequestBody Customer customer) {
     return customerService.createNewCustomer(customer);
   }
 
   @PutMapping("/customer/{id}")
-  public ResponseEntity<Customer> updateCustomer(@PathVariable int id, @RequestBody Customer customer){
+  public ResponseEntity<Customer> updateCustomer(@PathVariable int id, @RequestBody Customer customer) {
     Optional<Customer> optionalCustomer = customerService.findById(id);
-    if (optionalCustomer.isPresent()){
+    if (optionalCustomer.isPresent()) {
       customerService.saveCustomer(customer);
       return new ResponseEntity<>(customer, HttpStatus.OK);
-    }else {
+    } else {
       return new ResponseEntity<>(customer, HttpStatus.NOT_FOUND);
     }
   }
 
   @DeleteMapping("/customer/{id}")
-  public ResponseEntity<String> deleteCustomer(@PathVariable int id){
+  public ResponseEntity<String> deleteCustomer(@PathVariable int id) {
     try {
       customerService.deleteCustomer(id);
       return new ResponseEntity<>("Deleted customer with id: " + id, HttpStatus.OK);
-    }catch (Exception e){
+    } catch (Exception e) {
       return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
     }
   }

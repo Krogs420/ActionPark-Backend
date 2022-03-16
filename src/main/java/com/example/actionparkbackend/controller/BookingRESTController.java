@@ -52,13 +52,12 @@ public class BookingRESTController {
   }
 
   @DeleteMapping("booking/{id}")
-  public ResponseEntity<String> deleteBooking(@PathVariable int id){
+  public ResponseEntity<String> deleteBooking(@PathVariable int id) {
     try {
       bookingService.deleteBooking(id);
       return new ResponseEntity<>("Delete task with id: " + id, HttpStatus.OK);
-    }catch (Exception e){
+    } catch (Exception e) {
       return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
     }
   }
-
 }
