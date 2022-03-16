@@ -2,11 +2,11 @@ package com.example.actionparkbackend.controller;
 
 
 import com.example.actionparkbackend.entity.Booking;
-import com.example.actionparkbackend.entity.BookingLine;
 import com.example.actionparkbackend.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,6 +48,16 @@ public class BookingRESTController {
       return new ResponseEntity<>(booking, HttpStatus.OK);
     } else {
       return new ResponseEntity<>(booking, HttpStatus.NOT_FOUND);
+    }
+  }
+
+  @DeleteMapping("booking/{id}")
+  public ResponseEntity<String> deleteBooking(@PathVariable int id){
+    try {
+      bookingService.deleteBooking(id);
+      return new ResponseEntity<>("Delete task with id: " + id, HttpStatus.OK);
+    }catch (Exception e){
+      return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
     }
   }
 

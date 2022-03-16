@@ -33,4 +33,8 @@ public class BookingService {
   public Optional<Booking> findById(int id) {
     return bookingRepository.findById(id);
   }
+
+  public void deleteBooking(int id) {
+    bookingRepository.deleteById(id);
+  }
 }
