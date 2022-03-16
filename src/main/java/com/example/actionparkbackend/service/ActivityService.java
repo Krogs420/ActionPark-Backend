@@ -34,4 +34,8 @@ public class ActivityService {
   public Optional<Activity> findById(int id) {
     return activityRepository.findById(id);
   }
+
+  public void deleteActivity(int id) {
+    activityRepository.deleteById(id);
+  }
 }
