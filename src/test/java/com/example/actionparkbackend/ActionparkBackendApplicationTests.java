@@ -15,5 +15,4 @@ class ActionparkBackendApplicationTests {
     public void testIchi() {
         Assertions.assertEquals(2,1+1);
     }
-
 }
