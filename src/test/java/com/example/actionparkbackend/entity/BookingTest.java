@@ -26,5 +26,4 @@ class BookingTest {
 
     assertNotEquals(200, booking.getTotalPrice());
   }
-
 }
