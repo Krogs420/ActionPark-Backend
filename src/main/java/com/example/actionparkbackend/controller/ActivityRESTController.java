@@ -37,17 +37,17 @@ public class ActivityRESTController {
 
   @PostMapping("/postActivity")
   @ResponseStatus(HttpStatus.CREATED)
-  public Activity postActivity(@RequestBody Activity activity){
+  public Activity postActivity(@RequestBody Activity activity) {
     return activityService.postNewActivity(activity);
   }
 
   @PutMapping("/activity/{id}")
-  public ResponseEntity<Activity> updateActivity(@PathVariable int id, @RequestBody Activity activity){
+  public ResponseEntity<Activity> updateActivity(@PathVariable int id, @RequestBody Activity activity) {
     Optional<Activity> optionalActivity = activityService.findById(id);
-    if (optionalActivity.isPresent()){
+    if (optionalActivity.isPresent()) {
       activityService.saveActivity(activity);
       return new ResponseEntity<>(activity, HttpStatus.OK);
-    } else{
+    } else {
       return new ResponseEntity<>(activity, HttpStatus.NOT_FOUND);
     }
   }
@@ -55,11 +55,11 @@ public class ActivityRESTController {
   //Bør man kunne slette en aktivitet, hvis ja - hvad gør vi med alle de records
   // der connected så de ikke blir forældreløse :(
   @DeleteMapping("/activity/{id}")
-  public ResponseEntity<String> deleteActivity(@PathVariable int id){
+  public ResponseEntity<String> deleteActivity(@PathVariable int id) {
     try {
       activityService.deleteActivity(id);
       return new ResponseEntity<>("Activity delete with id: " + id, HttpStatus.OK);
-    }catch (Exception e){
+    } catch (Exception e) {
       return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
     }
   }

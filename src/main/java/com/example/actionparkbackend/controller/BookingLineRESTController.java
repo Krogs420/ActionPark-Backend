@@ -8,6 +8,7 @@ import com.example.actionparkbackend.service.BookingLineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,19 +38,29 @@ public class BookingLineRESTController {
 
   @PostMapping("/postBookingLine")
   @ResponseStatus(HttpStatus.CREATED)
-  public BookingLine postBookingLine(@RequestBody BookingLine bookingLine){
+  public BookingLine postBookingLine(@RequestBody BookingLine bookingLine) {
     return bookingLineService.createNewBookingLine(bookingLine);
   }
 
   @PutMapping("bookingLine/{id}")
   public ResponseEntity<BookingLine> updateBookingLine(@PathVariable int id,
-                                                       @RequestBody BookingLine bookingLine){
+                                                       @RequestBody BookingLine bookingLine) {
     Optional<BookingLine> optionalBookingLine = bookingLineService.findById(id);
-    if (optionalBookingLine.isPresent()){
+    if (optionalBookingLine.isPresent()) {
       bookingLineService.saveBookingLine(bookingLine);
       return new ResponseEntity<>(bookingLine, HttpStatus.OK);
-    }else {
+    } else {
       return new ResponseEntity<>(bookingLine, HttpStatus.NOT_FOUND);
+    }
+  }
+
+  @DeleteMapping("bookingLine/{id}")
+  public ResponseEntity<String> deleteBookingLine(@PathVariable int id) {
+    try {
+      bookingLineService.deleteBookingLine(id);
+      return new ResponseEntity<>("Deleted booking line with id: " + id, HttpStatus.OK);
+    } catch (Exception e) {
+      return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
     }
   }
 
