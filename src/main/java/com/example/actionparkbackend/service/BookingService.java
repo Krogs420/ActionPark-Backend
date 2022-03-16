@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class BookingService {
@@ -27,5 +28,9 @@ public class BookingService {
 
   public Booking createNewBooking(Booking booking) {
     return bookingRepository.save(booking);
+  }
+
+  public Optional<Booking> findById(int id) {
+    return bookingRepository.findById(id);
   }
 }
