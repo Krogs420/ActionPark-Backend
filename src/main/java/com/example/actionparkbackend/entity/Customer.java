@@ -13,9 +13,6 @@ public class Customer {
   private String customerPhoneNum;
   private String customerAddress;
 
-  @OneToOne
-  @JoinColumn(name = "customer_id")
-  private Booking booking;
 
   public int getCustomerId() {
     return customerId;

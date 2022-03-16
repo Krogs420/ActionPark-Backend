@@ -13,6 +13,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class InitData implements CommandLineRunner {
@@ -54,36 +56,48 @@ public class InitData implements CommandLineRunner {
     booking.setCreationDate(LocalDate.now());
     booking.setContenderAmount(4);
     booking.setCustomer(customer);
-    bookingService.saveBooking(booking);
+
 
     Booking booking2 = new Booking();
     booking2.setBookingDate(LocalDate.now());
     booking2.setCreationDate(LocalDate.now());
     booking2.setContenderAmount(4);
     booking2.setCustomer(customer);
-    bookingService.saveBooking(booking2);
+
 
     //BookingLines
     BookingLine bookingLine = new BookingLine();
-    bookingLine.setBooking(booking);
+
     bookingLine.setActivity(activity);
 
     BookingLine bookingLine2 = new BookingLine();
-    bookingLine2.setBooking(booking);
+
     bookingLine2.setActivity(activity);
 
+
     BookingLine bookingLine3 = new BookingLine();
-    bookingLine3.setBooking(booking);
+
     bookingLine3.setActivity(activity);
 
+
     BookingLine bookingLine4 = new BookingLine();
-    bookingLine4.setBooking(booking2);
+
     bookingLine4.setActivity(activity);
+
+    List<BookingLine> lines = new ArrayList<>();
+    lines.add(bookingLine);
+    lines.add(bookingLine2);
+    lines.add(bookingLine3);
+
 
     bookingLineService.saveBookingLine(bookingLine);
     bookingLineService.saveBookingLine(bookingLine2);
     bookingLineService.saveBookingLine(bookingLine3);
     bookingLineService.saveBookingLine(bookingLine4);
+
+    booking.setBookingLines(lines);
+    bookingService.saveBooking(booking);
+    bookingService.saveBooking(booking2);
   }
 
 }

@@ -1,8 +1,5 @@
 package com.example.actionparkbackend.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -15,10 +12,11 @@ public class Booking {
   private LocalDate creationDate = LocalDate.now();
   private LocalDate bookingDate;
   private int contenderAmount;
+  private double totalPrice;
 
   @OneToMany
   @JoinColumn(name = "booking_id")
-  private List<BookingLine> bookingLine;
+  private List<BookingLine> bookingLines;
 
   @OneToOne
   @JoinColumn(name = "customer_id")
@@ -52,12 +50,13 @@ public class Booking {
     this.contenderAmount = contenderAmount;
   }
 
-  public List<BookingLine> getBookingLine() {
-    return bookingLine;
+  public List<BookingLine> getBookingLines() {
+    return bookingLines;
   }
 
-  public void setBookingLine(List<BookingLine> bookingLine) {
-    this.bookingLine = bookingLine;
+  public void setBookingLines(List<BookingLine> bookingLines) {
+    this.bookingLines = bookingLines;
+    setTotalPrice();
   }
 
   public Customer getCustomer() {
@@ -66,5 +65,14 @@ public class Booking {
 
   public void setCustomer(Customer customer) {
     this.customer = customer;
+  }
+
+  public void setTotalPrice() {
+    double price = bookingLines.stream().mapToDouble(BookingLine::getLineAmount).sum();
+    this.totalPrice = price;
+  }
+
+  public double getTotalPrice() {
+    return totalPrice;
   }
 }
