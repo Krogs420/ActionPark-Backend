@@ -17,6 +17,7 @@ public class BookingLine {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int BookingLineId;
+  private double lineAmount;
 
   @ManyToOne
   @JoinColumn(name = "booking_id")
@@ -49,5 +50,9 @@ public class BookingLine {
 
   public void setActivity(Activity activity) {
     this.activity = activity;
+  }
+
+  private void setLineAmount() {
+    this.lineAmount = activity.getActivityPrice();
   }
 }
