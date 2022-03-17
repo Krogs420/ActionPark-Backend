@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class BookingLineService {
@@ -22,5 +23,17 @@ public class BookingLineService {
 
   public BookingLine getBookingLineById(int id) {
     return bookingLineRepository.findById(id).get();
+  }
+
+  public BookingLine createNewBookingLine(BookingLine bookingLine) {
+    return bookingLineRepository.save(bookingLine);
+  }
+
+  public Optional<BookingLine> findById(int id) {
+   return bookingLineRepository.findById(id);
+  }
+
+  public void deleteBookingLine(int id) {
+    bookingLineRepository.deleteById(id);
   }
 }

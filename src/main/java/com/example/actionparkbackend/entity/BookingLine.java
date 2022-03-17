@@ -2,6 +2,7 @@ package com.example.actionparkbackend.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,25 +19,14 @@ public class BookingLine {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int BookingLineId;
 
-  @ManyToOne
-  @JoinColumn(name = "booking_id")
-  @JsonBackReference
-  private Booking booking;
-
   @OneToOne
   @JoinColumn(name = "activity_id")
   private Activity activity;
 
+  private double lineAmount = 0;
+
   public int getBookingLineId() {
     return BookingLineId;
-  }
-
-  public Booking getBooking() {
-    return booking;
-  }
-
-  public void setBooking(Booking booking) {
-    this.booking = booking;
   }
 
   public void setBookingLineId(int bookingLineId) {
@@ -49,5 +39,14 @@ public class BookingLine {
 
   public void setActivity(Activity activity) {
     this.activity = activity;
+    setLineAmount();
+  }
+
+  public double getLineAmount() {
+    return lineAmount;
+  }
+
+  private void setLineAmount() {
+    this.lineAmount = activity.getActivityPrice();
   }
 }

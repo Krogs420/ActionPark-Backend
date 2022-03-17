@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class CustomerService {
@@ -25,4 +26,15 @@ public class CustomerService {
     return customerRepository.findById(id).get();
   }
 
+  public Customer createNewCustomer(Customer customer) {
+    return customerRepository.save(customer);
+  }
+
+  public Optional<Customer> findById(int id) {
+    return customerRepository.findById(id);
+  }
+
+  public void deleteCustomer(int id) {
+    customerRepository.deleteById(id);
+  }
 }

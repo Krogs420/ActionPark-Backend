@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class ActivityService {
@@ -24,5 +25,17 @@ public class ActivityService {
 
   public Activity getActivityById(int id) {
     return activityRepository.findById(id).get();
+  }
+
+  public Activity postNewActivity(Activity activity) {
+    return activityRepository.save(activity);
+  }
+
+  public Optional<Activity> findById(int id) {
+    return activityRepository.findById(id);
+  }
+
+  public void deleteActivity(int id) {
+    activityRepository.deleteById(id);
   }
 }
