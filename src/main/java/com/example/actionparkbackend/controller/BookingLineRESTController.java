@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,28 +22,29 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("api/booking-line")
 public class BookingLineRESTController {
 
   @Autowired
   BookingLineService bookingLineService;
 
-  @GetMapping("/getBookingLines")
+  @GetMapping("/all-booking-lines")
   public List<BookingLine> bookingLines() {
     return bookingLineService.getBookingLines();
   }
 
-  @GetMapping("/getBookingLine/{id}")
+  @GetMapping("/{id}")
   public BookingLine getBookingLine(@PathVariable int id) {
     return bookingLineService.getBookingLineById(id);
   }
 
-  @PostMapping("/postBookingLine")
+  @PostMapping("/add")
   @ResponseStatus(HttpStatus.CREATED)
   public BookingLine postBookingLine(@RequestBody BookingLine bookingLine) {
     return bookingLineService.createNewBookingLine(bookingLine);
   }
 
-  @PutMapping("bookingLine/{id}")
+  @PutMapping("/update/{id}")
   public ResponseEntity<BookingLine> updateBookingLine(@PathVariable int id,
                                                        @RequestBody BookingLine bookingLine) {
     Optional<BookingLine> optionalBookingLine = bookingLineService.findById(id);
@@ -54,7 +56,7 @@ public class BookingLineRESTController {
     }
   }
 
-  @DeleteMapping("bookingLine/{id}")
+  @DeleteMapping("/delete/{id}")
   public ResponseEntity<String> deleteBookingLine(@PathVariable int id) {
     try {
       bookingLineService.deleteBookingLine(id);
