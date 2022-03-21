@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,28 +19,29 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("api/customer")
 public class CustomerRESTController {
 
   @Autowired
   CustomerService customerService;
 
-  @GetMapping("/getCustomers")
+  @GetMapping("/all-customers")
   public List<Customer> getAllCustomers() {
     return customerService.getAllCustomers();
   }
 
-  @GetMapping("/getCustomer/{id}")
+  @GetMapping("/{id}")
   public Customer getCustomer(@PathVariable int id) {
     return customerService.getCustomerById(id);
   }
 
-  @PostMapping("/postCustomer")
+  @PostMapping("/add")
   @ResponseStatus(HttpStatus.CREATED)
   public Customer postCustomer(@RequestBody Customer customer) {
     return customerService.createNewCustomer(customer);
   }
 
-  @PutMapping("/customer/{id}")
+  @PutMapping("/update/{id}")
   public ResponseEntity<Customer> updateCustomer(@PathVariable int id, @RequestBody Customer customer) {
     Optional<Customer> optionalCustomer = customerService.findById(id);
     if (optionalCustomer.isPresent()) {
@@ -50,7 +52,7 @@ public class CustomerRESTController {
     }
   }
 
-  @DeleteMapping("/customer/{id}")
+  @DeleteMapping("/delete/{id}")
   public ResponseEntity<String> deleteCustomer(@PathVariable int id) {
     try {
       customerService.deleteCustomer(id);
