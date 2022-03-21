@@ -11,7 +11,6 @@ public class Customer {
   private String customerLastName;
   private String customerMail;
   private String customerPhoneNum;
-  private String customerAddress;
 
 
   public int getCustomerId() {
@@ -50,11 +49,4 @@ public class Customer {
     this.customerPhoneNum = customerPhoneNum;
   }
 
-  public String getCustomerAddress() {
-    return customerAddress;
-  }
-
-  public void setCustomerAddress(String customerAddress) {
-    this.customerAddress = customerAddress;
-  }
 }
