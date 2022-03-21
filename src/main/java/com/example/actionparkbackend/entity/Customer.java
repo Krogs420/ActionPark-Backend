@@ -11,6 +11,8 @@ public class Customer {
   private String customerLastName;
   private String customerMail;
   private String customerPhoneNum;
+  private String CustomerCvrNumber;
+  private String customerComment;
 
 
   public int getCustomerId() {
@@ -49,4 +51,19 @@ public class Customer {
     this.customerPhoneNum = customerPhoneNum;
   }
 
+  public String getCustomerCvrNumber() {
+    return CustomerCvrNumber;
+  }
+
+  public void setCustomerCvrNumber(String customerCvrNumber) {
+    CustomerCvrNumber = customerCvrNumber;
+  }
+
+  public String getCustomerComment() {
+    return customerComment;
+  }
+
+  public void setCustomerComment(String customerComment) {
+    this.customerComment = customerComment;
+  }
 }
