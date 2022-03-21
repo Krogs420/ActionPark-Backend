@@ -78,7 +78,6 @@ public class InitData implements CommandLineRunner {
     customer.setCustomerLastName("Jesen");
     customer.setCustomerMail("Finn@jensen.dk");
     customer.setCustomerPhoneNum("12345678");
-    customer.setCustomerAddress("adresse");
 
     customerService.saveCustomer(customer);
 
