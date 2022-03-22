@@ -63,7 +63,16 @@ public class BookingLine {
         return lineAmount;
     }
 
-    private void setLineAmount() {
-        this.lineAmount = activity.getActivityPrice();
-    }
+
+  private void setLineAmount() {
+    this.lineAmount = activity.getActivityPrice();
+  }
+
+  public String getActivityTime() {
+    return activityTime;
+  }
+
+  public void setActivityTime(String activityTime) {
+    this.activityTime = activityTime;
+  }
 }

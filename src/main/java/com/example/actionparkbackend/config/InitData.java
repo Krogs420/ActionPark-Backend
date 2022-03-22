@@ -37,26 +37,33 @@ public class InitData implements CommandLineRunner {
     activity.setActivityName("Mini Golf");
     activity.setActivityPrice(100.0);
     activity.setActivityDescription("Mega nice Mini golf for familien");
+    activity.setActivityImageHref("https://github.com/Krogs420/ActionPark-Frontend/blob/main/images/unnamed.png?raw=true");
 
     Activity activity2 = new Activity();
     activity2.setActivityName("Go-cart");
     activity2.setActivityPrice(100.0);
     activity2.setActivityDescription("Mega nice Go-cart for dig og drengene");
+    activity2.setActivityImageHref("https://github.com/Krogs420/ActionPark-Frontend/blob/main/images/header_gokart-e1424087434508-1024x468.jpg?raw=true");
 
     Activity activity3 = new Activity();
     activity3.setActivityName("Paintball");
     activity3.setActivityPrice(100.0);
     activity3.setActivityDescription("Mega nice PaintBall for familien");
+    activity3.setActivityImageHref("https://github.com/Krogs420/ActionPark-Frontend/blob/main/images/Paintball2.jpg?raw=true");
+
 
     Activity activity4 = new Activity();
     activity4.setActivityName("Sumo Wrestling");
     activity4.setActivityPrice(100.0);
     activity4.setActivityDescription("Mega nice Sumo wrestling for familien");
+    activity4.setActivityImageHref("https://github.com/Krogs420/ActionPark-Frontend/blob/main/images/Sumo-Wrestling_Players3_960x720.jpg?raw=true");
+
 
     Activity activity5 = new Activity();
     activity5.setActivityName("Bumper Ball");
     activity5.setActivityPrice(100.0);
     activity5.setActivityDescription("Mega nice Bumper Ball for familien");
+    activity5.setActivityImageHref("https://github.com/Krogs420/ActionPark-Frontend/blob/main/images/1522811_249040721886379_5028558434686202985_o.jpg?raw=true");
 
 
     activityService.saveActivity(activity);
@@ -71,7 +78,6 @@ public class InitData implements CommandLineRunner {
     customer.setCustomerLastName("Jesen");
     customer.setCustomerMail("Finn@jensen.dk");
     customer.setCustomerPhoneNum("12345678");
-    customer.setCustomerAddress("adresse");
 
     customerService.saveCustomer(customer);
 
@@ -105,6 +111,7 @@ public class InitData implements CommandLineRunner {
 
     BookingLine bookingLine4 = new BookingLine();
     bookingLine4.setActivity(activity);
+    bookingLine4.setActivityTime("18:00");
 
     List<BookingLine> lines = new ArrayList<>();
     lines.add(bookingLine);
