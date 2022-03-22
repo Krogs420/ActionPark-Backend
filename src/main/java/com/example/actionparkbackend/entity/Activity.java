@@ -16,6 +16,7 @@ public class Activity {
   private String activityName;
   private double activityPrice;
   private String activityDescription;
+  private String activityImageHref;
 
 
   @OneToOne
@@ -61,4 +62,12 @@ public class Activity {
   public void setBookingLine(BookingLine bookingLine) {
     this.bookingLine = bookingLine;
   }
+
+    public String getActivityImageHref() {
+        return activityImageHref;
+    }
+
+    public void setActivityImageHref(String activityImageHref) {
+        this.activityImageHref = activityImageHref;
+    }
 }

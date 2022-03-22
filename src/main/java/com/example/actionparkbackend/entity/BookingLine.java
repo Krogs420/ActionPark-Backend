@@ -17,6 +17,7 @@ public class BookingLine {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int BookingLineId;
     private String activityInstructor;
+    private String activityTime;
 
     @OneToOne
     @JoinColumn(name = "activity_id")
@@ -26,7 +27,7 @@ public class BookingLine {
     private double lineAmount = 0;
 
 
-    public String getActivityInstructor() {
+    public String getRandomActivityInstructor() {
         Random rand = new Random();
         ArrayList<String> names = new ArrayList<>();
         names.add("Test John");
@@ -38,8 +39,8 @@ public class BookingLine {
         return names.get(randomInstructor);
     }
 
-    public void setActivityInstructor(String activityInstructor) {
-        this.activityInstructor = activityInstructor;
+    public void setActivityInstructor() {
+        this.activityInstructor = getRandomActivityInstructor();
     }
 
     public int getBookingLineId() {
@@ -57,6 +58,7 @@ public class BookingLine {
     public void setActivity(Activity activity) {
         this.activity = activity;
         setLineAmount();
+        setActivityInstructor();
     }
 
     public double getLineAmount() {
@@ -74,5 +76,9 @@ public class BookingLine {
 
   public void setActivityTime(String activityTime) {
     this.activityTime = activityTime;
+  }
+
+  public String getActivityInstructor() {
+    return activityInstructor;
   }
 }
