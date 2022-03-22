@@ -93,9 +93,11 @@ public class InitData implements CommandLineRunner {
     //BookingLines
     BookingLine bookingLine = new BookingLine();
     bookingLine.setActivity(activity);
+    bookingLine.setActivity_instructor("Kurt Kurtsen");
 
     BookingLine bookingLine2 = new BookingLine();
     bookingLine2.setActivity(activity);
+
 
     BookingLine bookingLine3 = new BookingLine();
     bookingLine3.setActivity(activity);
