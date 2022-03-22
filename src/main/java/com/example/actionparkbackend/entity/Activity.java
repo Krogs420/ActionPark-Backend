@@ -3,6 +3,8 @@ package com.example.actionparkbackend.entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
+import java.sql.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -18,6 +20,27 @@ public class Activity {
   @JoinColumn(name = "activity_id")
   @JsonBackReference
   private BookingLine bookingLine;
+  public static ArrayList<String> instructorNames;
+
+
+
+  public static ArrayList<String> getInstructorNames() {
+    return instructorNames;
+  }
+
+  public static void setInstructorNames(ArrayList<String> instructorNames) {
+    instructorNames.add("Aage Aalson");
+    instructorNames.add("Bjarne Bæver");
+    instructorNames.add("Charles Charlie");
+    instructorNames.add("Daniel Dum");
+    instructorNames.add("Erik Elifsen");
+    instructorNames.add("Frederike Ferm");
+    instructorNames.add("George Gunner");
+    instructorNames.add("Henrik Høi");
+
+    Activity.instructorNames = instructorNames;
+
+  }
 
   public int getActivityId() {
     return activityId;
