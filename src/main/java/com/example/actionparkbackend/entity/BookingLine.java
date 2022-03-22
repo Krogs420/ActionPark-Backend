@@ -16,7 +16,7 @@ public class BookingLine {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int BookingLineId;
-    private String activity_instructor;
+    private String activityInstructor;
 
     @OneToOne
     @JoinColumn(name = "activity_id")
@@ -26,12 +26,20 @@ public class BookingLine {
     private double lineAmount = 0;
 
 
-    public String getActivity_instructor() {
-        return activity_instructor;
+    public String getActivityInstructor() {
+        Random rand = new Random();
+        ArrayList<String> names = new ArrayList<>();
+        names.add("Test John");
+        names.add("Test Kurt");
+        names.add("Test svend");
+        names.add("Test Bjarne");
+
+        int randomInstructor = rand.nextInt(names.size());
+        return names.get(randomInstructor);
     }
 
-    public void setActivity_instructor(String activity_instructor) {
-        this.activity_instructor = activity_instructor;
+    public void setActivityInstructor(String activityInstructor) {
+        this.activityInstructor = activityInstructor;
     }
 
     public int getBookingLineId() {
