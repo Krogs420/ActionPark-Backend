@@ -109,6 +109,7 @@ public class InitData implements CommandLineRunner {
 
     BookingLine bookingLine4 = new BookingLine();
     bookingLine4.setActivity(activity);
+    bookingLine4.setActivityTime("18:00");
 
     List<BookingLine> lines = new ArrayList<>();
     lines.add(bookingLine);

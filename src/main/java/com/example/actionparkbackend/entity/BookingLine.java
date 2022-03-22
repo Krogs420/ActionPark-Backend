@@ -55,7 +55,7 @@ public class BookingLine {
     return activityTime;
   }
 
-  public void setLineAmount(double lineAmount) {
-    this.lineAmount = lineAmount;
+  public void setActivityTime(String activityTime) {
+    this.activityTime = activityTime;
   }
 }
