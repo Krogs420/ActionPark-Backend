@@ -22,6 +22,7 @@ public class BookingLine {
   @OneToOne
   @JoinColumn(name = "activity_id")
   private Activity activity;
+  private String activityTime;
 
   private double lineAmount = 0;
 
@@ -48,5 +49,13 @@ public class BookingLine {
 
   private void setLineAmount() {
     this.lineAmount = activity.getActivityPrice();
+  }
+
+  public String getActivityTime() {
+    return activityTime;
+  }
+
+  public void setLineAmount(double lineAmount) {
+    this.lineAmount = lineAmount;
   }
 }
