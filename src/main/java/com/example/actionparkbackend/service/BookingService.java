@@ -5,6 +5,7 @@ import com.example.actionparkbackend.repository.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,5 +37,9 @@ public class BookingService {
 
   public void deleteBooking(int id) {
     bookingRepository.deleteById(id);
+  }
+
+  public List<Booking> getBookingByBookingDate (LocalDate date) {
+    return bookingRepository.findByBookingDate(date);
   }
 }
