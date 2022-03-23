@@ -34,8 +34,6 @@ public class InstructorRESTController {
     }
   }
 
-  @PostMapping("/")
-
   @DeleteMapping("/delete/{id}")
   public ResponseEntity<String> deleteInstructor(@PathVariable int id) {
     try {
