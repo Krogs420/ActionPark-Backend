@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -63,5 +64,11 @@ public class BookingRESTController {
     } catch (Exception e) {
       return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
     }
+  }
+
+  @GetMapping("/bookingdate/{id}")
+  public List<Booking> getBookingByDate(@PathVariable String id) {
+    LocalDate date = LocalDate.parse(id);
+    return bookingService.getBookingByBookingDate(date);
   }
 }
