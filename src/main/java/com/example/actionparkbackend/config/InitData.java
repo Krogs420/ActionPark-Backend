@@ -1,13 +1,7 @@
 package com.example.actionparkbackend.config;
 
-import com.example.actionparkbackend.entity.Activity;
-import com.example.actionparkbackend.entity.Booking;
-import com.example.actionparkbackend.entity.BookingLine;
-import com.example.actionparkbackend.entity.Customer;
-import com.example.actionparkbackend.service.ActivityService;
-import com.example.actionparkbackend.service.BookingLineService;
-import com.example.actionparkbackend.service.BookingService;
-import com.example.actionparkbackend.service.CustomerService;
+import com.example.actionparkbackend.entity.*;
+import com.example.actionparkbackend.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -27,6 +21,8 @@ public class InitData implements CommandLineRunner {
   BookingLineService bookingLineService;
   @Autowired
   CustomerService customerService;
+  @Autowired
+  InstructorService instructorService;
 
 
   @Override
@@ -95,6 +91,23 @@ public class InitData implements CommandLineRunner {
     booking2.setContenderAmount(4);
     booking2.setCustomer(customer);
 
+    //Instructors
+    Instructor instructor = new Instructor();
+    instructor.setInstructorName("Jens");
+    instructor.setInstructorPhoneNum("12343678");
+    Instructor instructor1 = new Instructor();
+    instructor1.setInstructorName("Kurt");
+    instructor1.setInstructorPhoneNum("12343678");
+    Instructor instructor2 = new Instructor();
+    instructor2.setInstructorName("Alfred");
+    instructor2.setInstructorPhoneNum("12343678");
+    Instructor instructor3 = new Instructor();
+    instructor3.setInstructorName("Svend Aage");
+    instructor3.setInstructorPhoneNum("12343678");
+    instructorService.saveInstructor(instructor);
+    instructorService.saveInstructor(instructor1);
+    instructorService.saveInstructor(instructor2);
+    instructorService.saveInstructor(instructor3);
 
     //BookingLines
     BookingLine bookingLine = new BookingLine();
