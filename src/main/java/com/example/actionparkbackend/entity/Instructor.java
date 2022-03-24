@@ -18,18 +18,24 @@ public class Instructor {
   public Instructor(String instructorName) {
     this.instructorName = instructorName;
   }
-
-  public String getRandomActivityInstructor() {
+/*
+  public Instructor getRandomActivityInstructor() {
     Random rando = new Random();
-    ArrayList<String> instructors = new ArrayList<>();
-    instructors.add("Jens");
-    instructors.add("Kurt");
-    instructors.add("Alfred");
-    instructors.add("Svend Aage");
+    ArrayList<Instructor> instructors = new ArrayList<>();
+    Instructor instructor1 = new Instructor("Jens");
+    instructors.add(instructor1);
+    Instructor instructor2 = new Instructor("Kurt");
+    instructors.add(instructor2);
+    Instructor instructor3 = new Instructor("Alfred");
+    instructors.add(instructor3);
+    Instructor instructor4 = new Instructor("Svend Aage");
+    instructors.add(instructor4);
 
     int randomInstructor = rando.nextInt(instructors.size());
     return instructors.get(randomInstructor);
   }
+
+ */
 
   public int getInstructorId() {
     return instructorId;

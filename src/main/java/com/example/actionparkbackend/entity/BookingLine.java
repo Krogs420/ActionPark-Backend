@@ -29,7 +29,7 @@ public class BookingLine {
     private double lineAmount = 0;
 
 
-    public void setInstructor() {
+    public void setInstructor(Instructor instructor) {
         this.instructor = instructor;
     }
 
@@ -48,11 +48,11 @@ public class BookingLine {
     public void setActivity(Activity activity) {
         this.activity = activity;
         setLineAmount();
-        setInstructor();
-
+        setInstructor(instructor);
     }
 
-    public double getLineAmount() {
+
+  public double getLineAmount() {
         return lineAmount;
     }
 
