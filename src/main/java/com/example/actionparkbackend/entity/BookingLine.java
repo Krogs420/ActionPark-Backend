@@ -6,8 +6,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import java.util.ArrayList;
-import java.util.Random;
 
 @Entity
 public class BookingLine {
@@ -16,31 +14,23 @@ public class BookingLine {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int BookingLineId;
-    private String activityInstructor;
+
     private String activityTime;
 
     @OneToOne
     @JoinColumn(name = "activity_id")
     private Activity activity;
 
+    @OneToOne
+    @JoinColumn
+    private Instructor instructor;
+
 
     private double lineAmount = 0;
 
 
-    public String getRandomActivityInstructor() {
-        Random rand = new Random();
-        ArrayList<String> names = new ArrayList<>();
-        names.add("Test John");
-        names.add("Test Kurt");
-        names.add("Test svend");
-        names.add("Test Bjarne");
-
-        int randomInstructor = rand.nextInt(names.size());
-        return names.get(randomInstructor);
-    }
-
-    public void setActivityInstructor() {
-        this.activityInstructor = getRandomActivityInstructor();
+    public void setInstructor() {
+        this.instructor = instructor;
     }
 
     public int getBookingLineId() {
@@ -58,7 +48,8 @@ public class BookingLine {
     public void setActivity(Activity activity) {
         this.activity = activity;
         setLineAmount();
-        setActivityInstructor();
+        setInstructor();
+
     }
 
     public double getLineAmount() {
@@ -78,7 +69,7 @@ public class BookingLine {
     this.activityTime = activityTime;
   }
 
-  public String getActivityInstructor() {
-    return activityInstructor;
+  public Instructor getInstructor() {
+    return instructor;
   }
 }

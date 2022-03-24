@@ -92,17 +92,13 @@ public class InitData implements CommandLineRunner {
     booking2.setCustomer(customer);
 
     //Instructors
-    Instructor instructor = new Instructor();
-    instructor.setInstructorName("Jens");
+    Instructor instructor = new Instructor("Jens");
     instructor.setInstructorPhoneNum("12343678");
-    Instructor instructor1 = new Instructor();
-    instructor1.setInstructorName("Kurt");
+    Instructor instructor1 = new Instructor("Kurt");
     instructor1.setInstructorPhoneNum("12343678");
-    Instructor instructor2 = new Instructor();
-    instructor2.setInstructorName("Alfred");
+    Instructor instructor2 = new Instructor("Alfred");
     instructor2.setInstructorPhoneNum("12343678");
-    Instructor instructor3 = new Instructor();
-    instructor3.setInstructorName("Svend Aage");
+    Instructor instructor3 = new Instructor("Svend Aage");
     instructor3.setInstructorPhoneNum("12343678");
     instructorService.saveInstructor(instructor);
     instructorService.saveInstructor(instructor1);
