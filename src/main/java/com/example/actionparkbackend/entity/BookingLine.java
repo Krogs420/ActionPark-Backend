@@ -11,6 +11,7 @@ import javax.persistence.OneToOne;
 public class BookingLine {
 
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int BookingLineId;
@@ -21,16 +22,17 @@ public class BookingLine {
     @JoinColumn(name = "activity_id")
     private Activity activity;
 
-    @OneToOne
+
     @JoinColumn
-    private Instructor instructor;
+    private static Instructor instructor;
+    private String instructorName;
 
 
     private double lineAmount = 0;
 
 
-    public void setInstructor(Instructor instructor) {
-        this.instructor = instructor;
+    public void setInstructor(String instructorName) {
+        this.instructorName = instructorName;
     }
 
     public int getBookingLineId() {
@@ -48,7 +50,7 @@ public class BookingLine {
     public void setActivity(Activity activity) {
         this.activity = activity;
         setLineAmount();
-        setInstructor(instructor);
+        setInstructor(instructor.getRandomActivityInstructor());
     }
 
 
@@ -69,7 +71,7 @@ public class BookingLine {
     this.activityTime = activityTime;
   }
 
-  public Instructor getInstructor() {
-    return instructor;
+  public String getInstructorName() {
+    return instructorName;
   }
 }
