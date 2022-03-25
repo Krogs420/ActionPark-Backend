@@ -71,4 +71,9 @@ public class BookingRESTController {
     LocalDate date = LocalDate.parse(id);
     return bookingService.getBookingByBookingDate(date);
   }
+
+  @GetMapping("/customer-phone/{phoneNum}")
+  public List<Booking> getBookingByPhoneNum(@PathVariable String phoneNum) {
+    return bookingService.getBookingByPhoneNum(phoneNum);
+  }
 }

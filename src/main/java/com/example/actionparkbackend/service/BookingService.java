@@ -42,4 +42,8 @@ public class BookingService {
   public List<Booking> getBookingByBookingDate (LocalDate date) {
     return bookingRepository.findByBookingDate(date);
   }
+
+  public List<Booking> getBookingByPhoneNum(String phoneNum){
+    return bookingRepository.findByCustomerCustomerPhoneNum(phoneNum);
+  }
 }
