@@ -1,47 +1,32 @@
 package com.example.actionparkbackend.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import java.util.ArrayList;
-import java.util.Random;
+import com.example.actionparkbackend.config.InitData;
+
+import javax.persistence.*;
 
 @Entity
 public class BookingLine {
 
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int BookingLineId;
-    private String activityInstructor;
+
     private String activityTime;
 
     @OneToOne
     @JoinColumn(name = "activity_id")
     private Activity activity;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "instructor_id")
+    private Instructor instructor;
+
+
 
     private double lineAmount = 0;
 
-
-    public String getRandomActivityInstructor() {
-        Random rand = new Random();
-        ArrayList<String> names = new ArrayList<>();
-        names.add("Test John");
-        names.add("Test Kurt");
-        names.add("Test svend");
-        names.add("Test Bjarne");
-
-        int randomInstructor = rand.nextInt(names.size());
-        return names.get(randomInstructor);
-    }
-
-    public void setActivityInstructor() {
-        this.activityInstructor = getRandomActivityInstructor();
-    }
 
     public int getBookingLineId() {
         return BookingLineId;
@@ -58,10 +43,11 @@ public class BookingLine {
     public void setActivity(Activity activity) {
         this.activity = activity;
         setLineAmount();
-        setActivityInstructor();
+        setInstructor(instructor);
     }
 
-    public double getLineAmount() {
+
+  public double getLineAmount() {
         return lineAmount;
     }
 
@@ -78,7 +64,11 @@ public class BookingLine {
     this.activityTime = activityTime;
   }
 
-  public String getActivityInstructor() {
-    return activityInstructor;
+  public Instructor getInstructor() {
+    return this.instructor;
+  }
+
+  public void setInstructor(Instructor instructor) {
+    this.instructor = instructor;
   }
 }

@@ -7,8 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 @RestController
 @RequestMapping("api/instructor")
@@ -21,6 +23,11 @@ public class InstructorRESTController {
   @GetMapping("/all-instructors")
   public List<Instructor> getAllInstructors() {
     return instructorService.getAllInstructors();
+  }
+
+  @GetMapping("/{id}")
+  public Instructor getInstructor(@PathVariable int id) {
+    return instructorService.getInstructorById(id);
   }
 
   @PutMapping("/update/{id}")

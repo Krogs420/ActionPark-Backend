@@ -104,14 +104,14 @@ public class InitData implements CommandLineRunner {
     Instructor instructor3 = new Instructor();
     instructor3.setInstructorName("Svend Aage");
     instructor3.setInstructorPhoneNum("12343678");
-    instructorService.saveInstructor(instructor);
-    instructorService.saveInstructor(instructor1);
-    instructorService.saveInstructor(instructor2);
-    instructorService.saveInstructor(instructor3);
+
+
+
 
     //BookingLines
     BookingLine bookingLine = new BookingLine();
     bookingLine.setActivity(activity);
+    bookingLine.setInstructor(instructor);
 
     BookingLine bookingLine2 = new BookingLine();
     bookingLine2.setActivity(activity);
@@ -141,6 +141,11 @@ public class InitData implements CommandLineRunner {
     booking.setBookingLines(lines);
     bookingService.saveBooking(booking);
     bookingService.saveBooking(booking2);
+
+    instructorService.saveInstructor(instructor);
+    instructorService.saveInstructor(instructor1);
+    instructorService.saveInstructor(instructor2);
+    instructorService.saveInstructor(instructor3);
   }
 
 }
