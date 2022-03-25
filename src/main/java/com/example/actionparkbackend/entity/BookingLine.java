@@ -24,7 +24,6 @@ public class BookingLine {
     private Instructor instructor;
 
 
-
     private double lineAmount = 0;
 
 
@@ -43,7 +42,6 @@ public class BookingLine {
     public void setActivity(Activity activity) {
         this.activity = activity;
         setLineAmount();
-        setInstructor(instructor);
     }
 
 
@@ -70,5 +68,6 @@ public class BookingLine {
 
   public void setInstructor(Instructor instructor) {
     this.instructor = instructor;
+
   }
 }
