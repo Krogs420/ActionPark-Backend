@@ -13,21 +13,21 @@ import java.util.List;
 @Component
 public class InitData implements CommandLineRunner {
 
-  @Autowired
-  ActivityService activityService;
-  @Autowired
-  BookingService bookingService;
-  @Autowired
-  BookingLineService bookingLineService;
-  @Autowired
-  CustomerService customerService;
-  @Autowired
-  InstructorService instructorService;
+    @Autowired
+    ActivityService activityService;
+    @Autowired
+    BookingService bookingService;
+    @Autowired
+    BookingLineService bookingLineService;
+    @Autowired
+    CustomerService customerService;
+    @Autowired
+    InstructorService instructorService;
 
 
-  @Override
-  public void run(String... args) throws Exception {
-
+    @Override
+    public void run(String... args) throws Exception {
+/*
     //Activity
     Activity activity = new Activity();
     activity.setActivityName("Mini Golf");
@@ -146,6 +146,8 @@ public class InitData implements CommandLineRunner {
     instructorService.saveInstructor(instructor1);
     instructorService.saveInstructor(instructor2);
     instructorService.saveInstructor(instructor3);
-  }
+ */
+    }
+
 
 }
