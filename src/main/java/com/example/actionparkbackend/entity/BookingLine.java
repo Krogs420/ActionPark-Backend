@@ -1,11 +1,8 @@
 package com.example.actionparkbackend.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import com.example.actionparkbackend.config.InitData;
+
+import javax.persistence.*;
 
 @Entity
 public class BookingLine {
@@ -22,18 +19,14 @@ public class BookingLine {
     @JoinColumn(name = "activity_id")
     private Activity activity;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "instructor_id")
+    private Instructor instructor;
 
-    @JoinColumn
-    private static Instructor instructor;
-    private String instructorName;
 
 
     private double lineAmount = 0;
 
-
-    public void setInstructor(String instructorName) {
-        this.instructorName = instructorName;
-    }
 
     public int getBookingLineId() {
         return BookingLineId;
@@ -50,7 +43,7 @@ public class BookingLine {
     public void setActivity(Activity activity) {
         this.activity = activity;
         setLineAmount();
-        setInstructor(instructor.getRandomActivityInstructor());
+        setInstructor(instructor);
     }
 
 
@@ -71,7 +64,11 @@ public class BookingLine {
     this.activityTime = activityTime;
   }
 
-  public String getInstructorName() {
-    return instructorName;
+  public Instructor getInstructor() {
+    return this.instructor;
+  }
+
+  public void setInstructor(Instructor instructor) {
+    this.instructor = instructor;
   }
 }

@@ -92,25 +92,26 @@ public class InitData implements CommandLineRunner {
     booking2.setCustomer(customer);
 
     //Instructors
-    Instructor instructor = new Instructor("Jens");
+    Instructor instructor = new Instructor();
+    instructor.setInstructorName("Jens");
     instructor.setInstructorPhoneNum("12343678");
-    Instructor instructor1 = new Instructor("Kurt");
+    Instructor instructor1 = new Instructor();
+    instructor1.setInstructorName("Kurt");
     instructor1.setInstructorPhoneNum("12343678");
-    Instructor instructor2 = new Instructor("Alfred");
+    Instructor instructor2 = new Instructor();
+    instructor2.setInstructorName("Alfred");
     instructor2.setInstructorPhoneNum("12343678");
-    Instructor instructor3 = new Instructor("Svend Aage");
+    Instructor instructor3 = new Instructor();
+    instructor3.setInstructorName("Svend Aage");
     instructor3.setInstructorPhoneNum("12343678");
-    instructorService.saveInstructor(instructor);
-    instructorService.saveInstructor(instructor1);
-    instructorService.saveInstructor(instructor2);
-    instructorService.saveInstructor(instructor3);
+
 
 
 
     //BookingLines
     BookingLine bookingLine = new BookingLine();
     bookingLine.setActivity(activity);
-    bookingLine.setInstructor(instructor.getInstructorName());
+    bookingLine.setInstructor(instructor);
 
     BookingLine bookingLine2 = new BookingLine();
     bookingLine2.setActivity(activity);
@@ -140,6 +141,11 @@ public class InitData implements CommandLineRunner {
     booking.setBookingLines(lines);
     bookingService.saveBooking(booking);
     bookingService.saveBooking(booking2);
+
+    instructorService.saveInstructor(instructor);
+    instructorService.saveInstructor(instructor1);
+    instructorService.saveInstructor(instructor2);
+    instructorService.saveInstructor(instructor3);
   }
 
 }
